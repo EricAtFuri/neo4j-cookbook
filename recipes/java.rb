@@ -19,8 +19,11 @@
 
 if node['neo4j']['install_java']
   # Java attributes to meet minimum requirement.
-  node.default['java']['jdk_version'] = '7'
-  node.default['java']['install_flavor'] = 'oracle'
+  if /^3/.match(node['neo4j']['release'])
+    node.default['java']['jdk_version'] = '8'
+  else
+    node.default['java']['jdk_version'] = '7'
+  end
   node.default['java']['set_default'] = true
   node.default['java']['arch'] = node['kernel']['machine']
   node.default['java']['oracle']['accept_oracle_download_terms'] = true
