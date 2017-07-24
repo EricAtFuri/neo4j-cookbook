@@ -23,6 +23,7 @@ if node['neo4j']['install_java']
     node.default['java']['jdk_version'] = '8'
   else
     node.default['java']['jdk_version'] = '7'
+    node.default['java']['install_flavor'] = 'oracle'
   end
   node.default['java']['set_default'] = true
   node.default['java']['arch'] = node['kernel']['machine']
