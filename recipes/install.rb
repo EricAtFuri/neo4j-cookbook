@@ -28,7 +28,8 @@ include_recipe "neo4j::#{node['neo4j']['install_method']}"
 
 [node['neo4j']['log_dir'],
  node['neo4j']['auth_dir'],
- node['neo4j']['data_dir']
+ node['neo4j']['data_dir'],
+ node['neo4j']['conf_dir']
 ].each do |dir|
   directory dir do
     owner node['neo4j']['user']
